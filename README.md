@@ -7,6 +7,9 @@ Andrés Saldarriaga Restrepo y Yuldainer Ospina Corrales
 
 ## Especificaciones del Dispositivo Android para el Proyecto - Samsung Galaxy A26
 
+## Version Android
+- Android 15 (Vanilla Ice Cream)
+
 ### Procesador
 - Samsung Exynos 1280
 - Arquitectura ARMv8.2-A
