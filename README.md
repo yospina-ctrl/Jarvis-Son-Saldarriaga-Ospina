@@ -23,4 +23,3 @@ Andrés Saldarriaga Restrepo y Yuldainer Ospina Corrales
 
 ### Almacenanmiento
 - 256 GB y 135 GB disponibles
-
