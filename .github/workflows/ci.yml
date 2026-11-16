@@ -1,0 +1,68 @@
+name: CI - Jarvis-Son
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-verify:
+    name: Compilación C++, Formato y Validación
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Descargar código del repositorio
+        uses: actions/checkout@v4
+
+      - name: 2. Verificar que no existan archivos pesados (> 50 MB) o audios
+        run: |
+          if find . -not -path './.git/*' -type f -size +50M | grep -q .; then
+            echo "ERROR: Se detectaron archivos mayores a 50 MB. No subas modelos GGUF/BIN al repositorio."
+            exit 1
+          fi
+          if find . -not -path './.git/*' \( -name "*.wav" -o -name "*.gguf" -o -name "*.onnx" \) | grep -q .; then
+            echo "ERROR: Se detectaron archivos de audio o modelos prohibidos por privacidad/tamaño."
+            exit 1
+          fi
+
+      - name: 3. Instalar compilador C++, CMake y herramientas de formato
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake clang-format jq shellcheck
+
+      - name: 4. Validar sintaxis de models/manifest.json
+        run: |
+          if [ -f "models/manifest.json" ]; then
+            jq empty models/manifest.json
+            echo "manifest.json es un JSON válido."
+          else
+            echo "ERROR: Falta el archivo models/manifest.json"
+            exit 1
+          fi
+
+      - name: 5. Validar scripts de Bash (si existen)
+        run: |
+          if ls scripts/*.sh 1> /dev/null 2>&1; then
+            shellcheck scripts/*.sh
+          else
+            echo "No hay scripts .sh para validar aún."
+          fi
+
+      - name: 6. Verificar formato del código C++ (clang-format)
+        run: |
+          FILES=$(find src include -name "*.cpp" -o -name "*.hpp" 2>/dev/null)
+          if [ -n "$FILES" ]; then
+            echo "$FILES" | xargs clang-format --dry-run --Werror
+          else
+            echo "No hay archivos C++ aún para validar formato."
+          fi
+
+      - name: 7. Compilar el orquestador en C++ con CMake
+        run: |
+          if [ -s CMakeLists.txt ]; then
+            cmake -B build -DCMAKE_BUILD_TYPE=Release
+            cmake --build build --config Release
+          else
+            echo "CMakeLists.txt está vacío. Saltando compilación por ahora (se activará en la Etapa 6)."
+          fi
