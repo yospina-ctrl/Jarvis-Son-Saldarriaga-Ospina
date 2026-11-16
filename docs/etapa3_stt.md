@@ -1,6 +1,6 @@
 # Implementación de Whisper/STT
 
-## Comandos para compilar whisper.cpp
+## Comandos para compilar STT whisper.cpp
 git clone --depth 1 https://github.com/ggerganov/whisper.cpp.git
 cd whisper.cpp
 cmake -S . -B build -DGGML_NO_OPENMP=ON
