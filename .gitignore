@@ -1,32 +1,36 @@
-# Prerequisites
-*.d
+# --- Jarvis-son V1: Exclusiones de Privacidad y Modelos ---
 
-# Compiled Object files
-*.slo
-*.lo
+# Archivos de audio temporales (Privacidad del usuario)
+*.wav
+*.mp3
+*.m4a
+tmp/
+
+# Pesos de modelos de Inteligencia Artificial (Prohibido subirlos a Git - Usar manifest.json)
+models/*.gguf
+models/*.bin
+models/*.onnx
+!models/manifest.json
+
+# --- Compilación y Entorno (C++, CMake y Termux) ---
+build/
 *.o
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
+*.exe
+*.out
+*.app
 *.so
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-*.smod
+# Directorios de caché de CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake-install.cmake
+install_manifest.txt
+*.cmake
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
