@@ -19,7 +19,8 @@ Andrés Saldarriaga Restrepo y Yuldainer Ospina Corrales
 - 8GB LPDDR4x (2.67 libres)
 
 ### GPU
-- Mali-G68 4 cores
+- ARM Mali-G68 4 cores
 
 ### Almacenanmiento
 - 256 GB y 135 GB disponibles
+

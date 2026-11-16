@@ -1,0 +1,34 @@
+{
+  "project": "jarvis-Son",
+  "target_device": {
+    "soc": "Samsung Exynos 1280 (ARM64)",
+    "ram_total_gb": 8,
+    "ram_free_baseline_gb": 2.67
+  },
+  "models": [
+    {
+      "stage": "STT",
+      "name": "whisper-tiny-multilingual",
+      "file": "ggml-tiny.bin",
+      "source_url": "https://huggingface.co/ggerganov/whisper.cpp",
+      "license": "MIT",
+      "sha256": "PENDIENTE_CALCULAR_EN_TERMUX"
+    },
+    {
+      "stage": "SLM",
+      "name": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+      "file": "qwen-2b-q4_k_m.gguf",
+      "source_url": "https://huggingface.co/Qwen",
+      "license": "Apache-2.0",
+      "sha256": "PENDIENTE_CALCULAR_EN_TERMUX"
+    },
+    {
+      "stage": "TTS",
+      "name": "piper-es-latam",
+      "file": "es_MX-ald-medium.onnx",
+      "source_url": "https://github.com/rhasspy/piper",
+      "license": "MIT",
+      "sha256": "PENDIENTE_CALCULAR_EN_TERMUX"
+    }
+  ]
+}
