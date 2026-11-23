@@ -54,6 +54,8 @@ jobs:
           if [ -s CMakeLists.txt ]; then
             cmake -B build -DCMAKE_BUILD_TYPE=Release
             cmake --build build --config Release
+            echo "✅ Compilación exitosa."
           else
-            echo "CMakeLists.txt está vacío. Saltando compilación por ahora (se activará en la Etapa 6)."
+            echo "ERROR: CMakeLists.txt está vacío o no existe."
+            exit 1
           fi
