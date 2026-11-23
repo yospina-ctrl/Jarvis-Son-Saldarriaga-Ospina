@@ -1,5 +1,5 @@
 {
-  "project": "jarvis-Son",
+  "project": "Jarvis-Son V1",
   "target_device": {
     "soc": "Samsung Exynos 1280 (ARM64)",
     "ram_total_gb": 8,
@@ -8,27 +8,27 @@
   "models": [
     {
       "stage": "STT",
-      "name": "whisper-tiny-multilingual",
-      "file": "ggml-tiny.bin",
+      "name": "whisper-base-multilingual",
+      "file": "ggml-base.bin",
       "source_url": "https://huggingface.co/ggerganov/whisper.cpp",
       "license": "MIT",
-      "sha256": "PENDIENTE_CALCULAR_EN_TERMUX"
+      "sha256": "60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe"
     },
     {
       "stage": "SLM",
-      "name": "Qwen2.5-1.5B-Instruct-Q4_K_M",
-      "file": "qwen-2b-q4_k_m.gguf",
-      "source_url": "https://huggingface.co/Qwen",
+      "name": "Qwen3.5-2B-Q4_K_M",
+      "file": "Qwen3.5-2B-Q4_K_M.gguf",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-2B-GGUF",
       "license": "Apache-2.0",
-      "sha256": "PENDIENTE_CALCULAR_EN_TERMUX"
+      "sha256": "aaf42c8b7c3cab2bf3d69c355048d4a0ee9973d48f16c731c0520ee914699223"
     },
     {
       "stage": "TTS",
-      "name": "piper-es-latam",
-      "file": "es_MX-ald-medium.onnx",
-      "source_url": "https://github.com/rhasspy/piper",
+      "name": "piper-es_ES-davefx-medium",
+      "file": "es_ES-davefx-medium.onnx",
+      "source_url": "https://huggingface.co/rhasspy/piper-voices",
       "license": "MIT",
-      "sha256": "PENDIENTE_CALCULAR_EN_TERMUX"
+      "sha256": "6826f9ac3fb4aac5c89c597f76ff32e84e7a0dea9469a6f18d1d387b696163eb"
     }
   ]
 }
