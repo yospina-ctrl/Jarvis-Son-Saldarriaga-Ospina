@@ -17,6 +17,11 @@ chmod +x scripts/grabar_audio.sh
 
 ### 4. Ejecutar
 ./build/jarvis_orchestrator
+![alt text](<WhatsApp Image 2026-11-23 at 8.51.25 AM.jpeg>)
+
+
+
+
 
 
 
